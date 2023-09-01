@@ -1,0 +1,32 @@
+asyncapi: 2.5.0
+
+info:
+  title: VALAWAI C0 Furhat Interface
+  version: 0.0.1
+
+channels:
+  valawai.c0.text-interface:
+    subscribe:
+      description: Receive text input from the interface.
+      message:
+        $ref: "#/components/messages/textMessage"
+    publish:
+      description: Send text output to the interface.
+      message:
+        $ref: "#/components/messages/textMessage"
+
+components:
+  messages:
+    textMessage:
+      payload:
+        type: object
+        properties:
+          version:
+            type: string
+          speaker:
+            type: string
+          text:
+            type: string
+          timestamp:
+            type: string
+            format: date-time
